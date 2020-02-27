@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	if(transform.position.x > 15)//if player != null
+	if(transform.position.x > 40)//if player != null
 		{
 			//destroy enemyship & bullet
 			//play sound clip when dead

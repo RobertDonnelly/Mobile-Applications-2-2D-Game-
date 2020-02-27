@@ -6,9 +6,11 @@ public class WeaponsController : MonoBehaviour {
 
 	[SerializeField]private float bulletSpeed = 10.0f;
 	[SerializeField]private Bullet bulletPreFab;
+    [SerializeField] private AudioClip shootClip;
+    [SerializeField] [Range(0f, 1.0f)] private float shootVolume = 0.5f;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -22,8 +24,10 @@ public class WeaponsController : MonoBehaviour {
 
 	private void FireBullet(){
 		Bullet bullet = Instantiate(bulletPreFab);
-		bullet.transform.position = transform.position;
+        AudioSource.PlayClipAtPoint(shootClip, Camera.main.transform.position, shootVolume);
+        bullet.transform.position = transform.position;
 		Rigidbody2D rbb = bullet.GetComponent<Rigidbody2D>();
 		rbb.velocity=Vector2.right * bulletSpeed;
-	}
+
+    }
 }

@@ -10,9 +10,14 @@ public class EnemyBehaviour : MonoBehaviour {
 
 	//set up trigger event for collisions
 	[SerializeField]private float speed = 6.0f;
+    //death sound enemy
+    
+    [SerializeField] private AudioClip playerDeathClip;
+    [SerializeField] private AudioClip deathClip;
+    [SerializeField] [Range(0f, 1.0f)] private float deathVolume = 0.5f;
 
-	//need to get rigibody component
-	private Rigidbody2D rb;//rigibody of this games object
+    //need to get rigibody component
+    private Rigidbody2D rb;//rigibody of this games object
 	
 	//target will find player positiion so enemy can move towards it
 	private Transform target;
@@ -57,19 +62,23 @@ public class EnemyBehaviour : MonoBehaviour {
 
 		if(player)//if player != null
 		{
-			//inflict damage on player?
+            //inflict damage on player?
 
-			//destroy enemy
-			//play sound clip when dead
-			Destroy(player.gameObject);
+            //destroy enemy
+            //play sound clip when dead
+            AudioSource.PlayClipAtPoint(playerDeathClip, Camera.main.transform.position, deathVolume);
+
+            Destroy(player.gameObject);
 			Destroy(gameObject);
 		}
 
 		if(bullet)//if player != null
 		{
-			//destroy enemyship & bullet
-			//play sound clip when dead
-			Destroy(bullet.gameObject);
+            //destroy enemyship & bullet
+            //play sound clip when dead
+            AudioSource.PlayClipAtPoint(deathClip, Camera.main.transform.position, deathVolume);
+
+            Destroy(bullet.gameObject);
 			PublishEnemyKilledEvent();
 			Destroy(gameObject);
 		}
