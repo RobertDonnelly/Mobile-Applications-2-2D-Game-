@@ -8,16 +8,16 @@ public class GameController : MonoBehaviour {
 	private int playerScore = 0;
 	
 	private void OnEnable(){
-		EnemyBehaviour.EnemeyKilledEvent+=HandleEnemyKilledEvent;
+		Enemy.EnemeyKilledEvent+=HandleEnemyKilledEvent;
 
 	}
 	
 	private void OnDisable(){
-		EnemyBehaviour.EnemeyKilledEvent-=HandleEnemyKilledEvent;
+		Enemy.EnemeyKilledEvent-=HandleEnemyKilledEvent;
 
 	}
 
-	private void HandleEnemyKilledEvent(EnemyBehaviour enemy){
+	private void HandleEnemyKilledEvent(Enemy enemy){
 		playerScore += enemy.ScoreValue;//public property
 		Debug.Log(enemy.ScoreValue+" points!");
 		Debug.Log("Score:"+playerScore);

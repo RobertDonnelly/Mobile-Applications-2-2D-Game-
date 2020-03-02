@@ -9,20 +9,23 @@ public class Bullet : MonoBehaviour {
 	private Rigidbody2D rb;//rigibody of this games object
 
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	if(transform.position.x > 40)//if player != null
+    // Update is called once per frame
+    void Update () {
+	if(transform.position.x > 100)
 		{
-			//destroy enemyship & bullet
-			//play sound clip when dead
 			Destroy(gameObject);
 		}
-
-		
-	}		
+    else if (transform.position.x < -100)
+        {
+            Destroy(gameObject);
+        }
+    else if (transform.position.y > 100)
+        {
+            Destroy(gameObject);
+        }
+    else if (transform.position.y < -100)
+        {
+            Destroy(gameObject);
+        }
+    }		
 }
