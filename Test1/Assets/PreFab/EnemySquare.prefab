@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1329163466913648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.0799, y: 0.6204, z: -2}
-  m_LocalScale: {x: 5, y: 5, z: 1.4712095}
+  m_LocalScale: {x: 10, y: 10, z: 1.4712095}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -157,8 +157,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDeathClip: {fileID: 8300000, guid: 451c4cb99f98fff4d99f29877c182325, type: 3}
-  deathClip: {fileID: 8300000, guid: cd6025ce45165254aa3c9cb962c8370d, type: 3}
+  deathClip: {fileID: 8300000, guid: 7d562f509314509499f297abb3675adf, type: 3}
   deathVolume: 0.5
+  explosionFX: {fileID: 8664397567243519547, guid: 96df0a044d3a4b148a0a7ca2d5beb7a5,
+    type: 3}
   scoreValue: 10
 --- !u!61 &480400386623705228
 BoxCollider2D:

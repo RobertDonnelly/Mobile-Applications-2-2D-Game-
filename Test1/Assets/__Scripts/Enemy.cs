@@ -22,10 +22,12 @@ public class Enemy : MonoBehaviour
 
     //death sound enemy
     [SerializeField] private AudioClip playerDeathClip;
+
     [SerializeField] private AudioClip deathClip;
     [SerializeField] [Range(0f, 1.0f)] private float deathVolume = 0.5f;
 
- 
+    [SerializeField] private GameObject explosionFX;
+    private float explosionDuration = 1.0f;
 
     [SerializeField] private int scoreValue = 10;
 
@@ -64,7 +66,10 @@ public class Enemy : MonoBehaviour
             //destroy enemyship & bullet
             //play sound clip when dead
             AudioSource.PlayClipAtPoint(deathClip, Camera.main.transform.position, deathVolume);
-
+            GameObject explosion = Instantiate(explosionFX,
+                                              transform.position,
+                                              transform.rotation);
+            Destroy(explosion, explosionDuration);
             Destroy(bullet.gameObject);
             PublishEnemyKilledEvent();
             Destroy(gameObject);
