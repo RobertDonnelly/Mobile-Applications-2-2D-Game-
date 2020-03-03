@@ -16,6 +16,9 @@ public class EnemyBehaviour : MonoBehaviour {
     //target will find player positiion so enemy can move towards it
     private Transform target;
 
+    
+
+
     //==private methods ==
     void Start () {
 		rb = this.GetComponent<Rigidbody2D>();
@@ -25,11 +28,19 @@ public class EnemyBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//add some movements to the left
-		//rb.velocity= Vector2.left*speed;
-		if(Vector2.Distance(rb.position,target.position)>0){
-		rb.position = Vector2.MoveTowards(rb.position,target.position,Time.deltaTime*speed);		
-		}
+        //add some movements to the left
+        //rb.velocity= Vector2.left*speed;
+      //  transform.LookAt(target);
+       // transform.LookAt(target, Vector3.left);
+
+         Vector3 vectorToTarget = target.position - transform.position;
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
+
+        if (Vector2.Distance(rb.position,target.position)>0){
+		rb.position = Vector2.MoveTowards(rb.position,target.position,Time.deltaTime*speed);
+        }
 	}
 
 }
