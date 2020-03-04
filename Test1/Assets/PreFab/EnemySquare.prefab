@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDeathClip: {fileID: 8300000, guid: 451c4cb99f98fff4d99f29877c182325, type: 3}
-  deathClip: {fileID: 8300000, guid: 7d562f509314509499f297abb3675adf, type: 3}
+  deathClip: {fileID: 8300000, guid: 0422b827346ff254a8d7f4b7ae433713, type: 3}
   deathVolume: 0.5
   explosionFX: {fileID: 8664397567243519547, guid: 96df0a044d3a4b148a0a7ca2d5beb7a5,
     type: 3}
